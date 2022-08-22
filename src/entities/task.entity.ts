@@ -17,4 +17,5 @@ export class TaskEntity {
 
   @ManyToOne(() => ProjectEntity, (project) => project.tasks)
   project: ProjectEntity;
+  status: string;
 }

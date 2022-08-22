@@ -6,6 +6,7 @@ interface ITask {
   name: string;
   conclude: boolean;
   delivery: Date;
+  status?: string;
   project?: IProject;
 }
 

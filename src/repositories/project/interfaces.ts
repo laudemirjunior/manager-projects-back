@@ -1,10 +1,12 @@
 import { DeleteResult, UpdateResult } from "typeorm";
+import { ITask } from "../task/interfaces";
 import { IUser } from "../user/interfaces";
 
 interface IProject {
   id: string;
   name: string;
   user?: IUser;
+  tasks?: ITask[];
 }
 
 interface CreationProject {

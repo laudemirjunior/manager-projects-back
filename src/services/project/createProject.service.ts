@@ -15,5 +15,7 @@ export const createProjectService = async (name: string, email: string) => {
     createProject
   );
 
+  delete saveProject.user.password;
+
   return saveProject;
 };
