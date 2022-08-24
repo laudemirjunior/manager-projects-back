@@ -1,10 +1,8 @@
 import {
   Column,
   Entity,
-  JoinColumn,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { TaskEntity } from "./task.entity";
@@ -21,6 +19,6 @@ export class ProjectEntity {
   @ManyToOne(() => UserEntity, (user) => user.projects)
   user: UserEntity;
 
-  @OneToMany(() => TaskEntity, (task) => task.project)
+  @OneToMany(() => TaskEntity, (task) => task.project, { onDelete: "CASCADE" })
   tasks: TaskEntity[];
 }

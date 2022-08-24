@@ -15,7 +15,12 @@ export class TaskEntity {
   @Column({ nullable: false })
   delivery: Date;
 
-  @ManyToOne(() => ProjectEntity, (project) => project.tasks)
+  @Column({ nullable: false })
+  responsible: string;
+
+  @ManyToOne(() => ProjectEntity, (project) => project.tasks, {
+    onDelete: "CASCADE",
+  })
   project: ProjectEntity;
   status: string;
 }

@@ -5,7 +5,5 @@ export const searchAllProjectService = async (email: string) => {
     email
   );
 
-  delete projects.password;
-
-  return projects;
+  return projects.projects;
 };

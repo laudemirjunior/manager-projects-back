@@ -1,3 +1,4 @@
+import moment from "moment";
 import { ProjectRepository } from "../../repositories";
 
 export const searchAllTaskService = async (id: string) => {
@@ -9,12 +10,14 @@ export const searchAllTaskService = async (id: string) => {
 
     if (item.conclude === true) {
       item.status = "Concluída";
-    } else if (data < delivery) {
+    } else if (moment(data).format("L") <= moment(delivery).format("L")) {
       item.status = "Pendente";
     } else {
       item.status = "Vencida";
     }
   });
 
-  return project.tasks;
+  project.tasks.sort((a, b) => a.delivery.getTime() - b.delivery.getTime());
+
+  return project;
 };
