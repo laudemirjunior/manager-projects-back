@@ -6,6 +6,7 @@ interface ITask {
   name: string;
   conclude: boolean;
   delivery: Date;
+  responsible: string;
   status?: string;
   project?: IProject;
 }
@@ -14,6 +15,7 @@ interface CreationTask {
   name: string;
   conclude: boolean;
   delivery: Date;
+  responsible: string;
   project?: IProject;
 }
 

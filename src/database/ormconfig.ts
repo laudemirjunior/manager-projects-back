@@ -6,7 +6,7 @@ dotenv.config();
 
 export default {
   type: "postgres",
-  host: "localhost",
+  host: "superplayer-postgres",
   port: 5432,
   username: "postgres",
   password: process.env.POSTGRES_PASSWORD,

@@ -7,7 +7,7 @@ export const deleteTaskController = async (req: Request, res: Response) => {
 
   try {
     const newTask = await deleteTaskService(id);
-    return res.status(200).json(newTask);
+    return res.status(204).json(newTask);
   } catch (error) {
     return handleError(error, res);
   }

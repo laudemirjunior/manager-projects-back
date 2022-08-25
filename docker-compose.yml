@@ -11,20 +11,20 @@ services:
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: superplayer
 
-  # node:
-  #   image: node:alpine
-  #   container_name: superplayer-node
-  #   restart: always
-  #   depends_on:
-  #     - postgres
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - .:/usr/src/app
-  #   working_dir: /usr/src/app
-  #   command: sh -c "yarn && yarn dev"
-  #   logging:
-  #     driver: "json-file"
-  #     options:
-  #       max-size: "10m"
-  #       max-file: "5"
+  node:
+    image: node:alpine
+    container_name: superplayer-node
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c "yarn && yarn typeorm migration:run && yarn start"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
