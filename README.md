@@ -3,4 +3,5 @@
 ```
 $ sudo docker-compose up
 ```
-# supertplay-back
+
+# manager-projects-back
